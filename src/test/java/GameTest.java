@@ -15,51 +15,52 @@ public class GameTest {
 
 
     @Test
-    public void prizePlaceOfTheParticipant(){
-       game.register(three);
-       game.register(five);
+    public void prizePlaceOfTheParticipant() {
+        game.register(three);
+        game.register(five);
 
-       int actual = game.round("Petya", "Vasya");
-       int expected = 1;
-       Assertions.assertEquals( expected, actual);
+        int actual = game.round("Petya", "Vasya");
+        int expected = 1;
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void prizePlaceOfTheParticipant2(){
+    public void prizePlaceOfTheParticipant2() {
         game.register(one);
         game.register(four);
 
-        int actual = game.round("Alex","Roma");
+        int actual = game.round("Alex", "Roma");
         int expected = 0;
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
 
     @Test
-    public void prizePlaceOfTheParticipant3(){
+    public void prizePlaceOfTheParticipant3() {
         game.register(two);
         game.register(three);
 
-        int actual = game.round("Ivan","Petya");
+        int actual = game.round("Ivan", "Petya");
         int expected = 2;
-        Assertions.assertEquals( expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void registrationStatusOfTheParticipant(){
+    public void registrationStatusOfTheParticipant() {
         game.register(one);
         game.register(four);
 
-        Assertions.assertThrows (NotRegisteredException.class,() -> {
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Ivan", "Roma");
         });
     }
+
     @Test
-    public void registrationStatusOfTheParticipant2(){
+    public void registrationStatusOfTheParticipant2() {
         game.register(one);
         game.register(two);
 
-        Assertions.assertThrows (NotRegisteredException.class,() -> {
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Alex", "Vasya");
         });
     }
